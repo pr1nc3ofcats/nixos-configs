@@ -35,6 +35,9 @@
     stow
     cloudflare-warp
     gh
+    direnv
+    nix-direnv
+    nixfmt
   ] ++ (with unstable; [
     # unstable packages
     hexchat	

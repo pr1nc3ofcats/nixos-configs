@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      # ./pc-hardware.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    # ./pc-hardware.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,9 +85,13 @@
   users.users.zloyk0t = {
     isNormalUser = true;
     description = "ZloyKot";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     openssh.authorizedKeys.keys = [
-    	"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVPS8Sb9kSjjPkp00NpShhr/fNXphkC5Rz2hSa3aCku zloykot@fedora"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVPS8Sb9kSjjPkp00NpShhr/fNXphkC5Rz2hSa3aCku zloykot@fedora"
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -103,26 +107,30 @@
 
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   virtualisation.docker.enable = true;
 
   services.openssh = {
     enable = true;
     settings = {
+      PermitRootLogin = "no";
       PasswordAuthentication = false;
-};
-};
+    };
+  };
   services.cloudflare-warp.enable = true;
 
   programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true; 
+  programs.steam.gamescopeSession.enable = true;
   programs.gamescope.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -20,6 +20,7 @@
     qbittorrent
     lutris
     obs-studio
+    texstudio
 
     # utils
     audacity

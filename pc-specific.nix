@@ -6,21 +6,7 @@
   ...
 }:
 
-let
-  custom-elegant-sddm = pkgs.elegant-sddm.override {
-    themeConfig.General.background = "${pkgs.nixos-artwork.wallpapers.catppuccin-macchiato.gnomeFilePath}";
-  };
-in
 {
-  environment.systemPackages = with pkgs; [
-    custom-elegant-sddm
-  ];
-
-  services.displayManager.sddm = {
-    theme = "Elegant";
-    extraPackages = [ custom-elegant-sddm ];
-  };
-
   # Pipewire fixes
   services.pipewire.extraConfig.pipewire-pulse."99-custom.conf" = {
     "pulse.cmd" = [

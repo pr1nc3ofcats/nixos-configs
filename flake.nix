@@ -16,6 +16,7 @@
         system = "x86_64-linux";
         modules = [
           ./pc-hardware.nix
+          ./pc-specific.nix
           ./configuration.nix
           ./packages.nix
 

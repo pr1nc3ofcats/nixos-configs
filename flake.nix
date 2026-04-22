@@ -7,9 +7,17 @@
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-unstable, ... }:
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }:
     let
-      unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
+      unstable = import nixpkgs-unstable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
@@ -29,7 +37,7 @@
         ];
 
         specialArgs = {
-        	inherit unstable;
+          inherit unstable;
         };
       };
     };

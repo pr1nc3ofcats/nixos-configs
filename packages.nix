@@ -6,7 +6,6 @@
 
     # taskbar
     discord
-    vscode
     wezterm
     vivaldi
     vivaldi-ffmpeg-codecs
@@ -42,6 +41,7 @@
   ] ++ (with unstable; [
     # unstable packages
     hexchat	
+    vscode
   ]
   );
 

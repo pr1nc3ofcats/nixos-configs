@@ -89,6 +89,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "wireshark"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVPS8Sb9kSjjPkp00NpShhr/fNXphkC5Rz2hSa3aCku zloykot@fedora"
@@ -125,6 +126,10 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamescope.enable = true;
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark-qt;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

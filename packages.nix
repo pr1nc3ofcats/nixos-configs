@@ -20,6 +20,7 @@
     lutris
     obs-studio
     texstudio
+    termusic
 
     # utils
     audacity

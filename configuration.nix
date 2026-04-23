@@ -11,6 +11,11 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  networking.extraHosts = ''
+    127.0.0.1 telemetry.microsoft.com
+    127.0.0.1 vscodemachinelearning.azureedge.net
+  '';
+
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/Kyiv";
   i18n.defaultLocale = "ru_UA.UTF-8";

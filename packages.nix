@@ -26,6 +26,7 @@
     ventoy-full
     btop
     lazygit
+    lazydocker
     nerd-fonts.jetbrains-mono
     fastfetch
     fzf

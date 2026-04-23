@@ -64,6 +64,7 @@
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVPS8Sb9kSjjPkp00NpShhr/fNXphkC5Rz2hSa3aCku zloykot@fedora"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDjl17MNB1TwZphq8TPExLhqtYIIYI1Ke8mScTHZPGjJ zloyk0t@nixos"
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -80,24 +81,18 @@
     "nix-command"
     "flakes"
   ];
-  virtualisation.docker.enable = true;
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-  };
-  services.cloudflare-warp.enable = true;
+  virtualisation.docker.enable = true;
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamescope.enable = true;
+
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark-qt;
   };
+  services.cloudflare-warp.enable = true;
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [

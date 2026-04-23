@@ -31,4 +31,12 @@
   # TPM2 disable
   systemd.tpm2.enable = false;
   boot.initrd.systemd.tpm2.enable = false;
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
 }

@@ -44,6 +44,7 @@
     # unstable packages
     hexchat	
     vscode
+    kicad
   ]
   );
 

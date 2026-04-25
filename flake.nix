@@ -23,17 +23,23 @@
       nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./pc-hardware.nix
-          ./pc-specific.nix
+          ./domains/pc-hardware.nix
+          ./domains/pc-specific.nix
           ./configuration.nix
           ./packages.nix
+        ];
 
-          (
-            { pkgs, lib, ... }:
-            {
-              networking.hostName = "pr1nc3ofcats";
-            }
-          )
+        specialArgs = {
+          inherit unstable;
+        };
+      };
+
+      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./domains/laptop-specific.nix
+          ./configuration.nix
+          ./packages.nix
         ];
 
         specialArgs = {

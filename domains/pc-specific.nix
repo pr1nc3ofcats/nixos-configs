@@ -7,6 +7,8 @@
 }:
 
 {
+  networking.hostName = "pr1nc3ofcats";
+
   # Pipewire fixes
   services.pipewire.extraConfig.pipewire-pulse."99-custom.conf" = {
     "pulse.cmd" = [

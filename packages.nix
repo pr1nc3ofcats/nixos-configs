@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     micro
-    vim
     git
 
     # taskbar

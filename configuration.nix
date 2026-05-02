@@ -88,6 +88,7 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamescope.enable = true;
   programs.vim.enable = true;
+  programs.vim.package = pkgs.vimHugeX;
 
   programs.wireshark = {
     enable = true;

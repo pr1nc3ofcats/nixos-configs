@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     micro
+    vim
     git
 
     # taskbar
@@ -31,6 +32,8 @@
     nerd-fonts.jetbrains-mono
     fastfetch
     fzf
+    fd
+    ripgrep
     zsh
     zip
     unzip
